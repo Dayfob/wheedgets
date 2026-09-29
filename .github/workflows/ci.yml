@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    # The same toolchain line the app is developed with (Xcode 26).
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Toolchain
+        run: xcodebuild -version && swift --version
+      - name: Check translations
+        run: ./Tools/check-localizations.py
+      - name: Test
+        run: swift test
+      - name: Build app bundle
+        run: ./build.sh --universal
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Wheedgets.app
+          path: build/Wheedgets.app
