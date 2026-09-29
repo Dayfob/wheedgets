@@ -157,3 +157,9 @@ Pushing a version tag (`git tag v0.2.0 && git push origin v0.2.0`) runs
 [Dayfob/homebrew-tap](https://github.com/Dayfob/homebrew-tap). Signing with a Developer ID
 and notarization turn on by themselves once the secrets listed at the top of the workflow
 are set.
+
+## License
+
+[PolyForm Noncommercial 1.0.0](LICENSE.md): you may use, study, change and share Wheedgets
+for any noncommercial purpose. Using it, or code from it, in a commercial product or
+service is not permitted.
