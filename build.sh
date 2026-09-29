@@ -48,6 +48,13 @@ echo "▸ Assembling bundle…"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN_DIR/$APP_NAME" "$APP/Contents/MacOS/$APP_NAME"
 cp Resources/Info.plist "$APP/Contents/Info.plist"
+# Release builds stamp the version from the git tag (see .github/workflows/release.yml).
+if [[ -n "${WHEEDGETS_VERSION:-}" ]]; then
+    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $WHEEDGETS_VERSION" "$APP/Contents/Info.plist"
+fi
+if [[ -n "${WHEEDGETS_BUILD:-}" ]]; then
+    /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $WHEEDGETS_BUILD" "$APP/Contents/Info.plist"
+fi
 cp -R Resources/*.lproj "$APP/Contents/Resources/"
 if [[ -f Resources/AppIcon.icns ]]; then
     cp Resources/AppIcon.icns "$APP/Contents/Resources/"

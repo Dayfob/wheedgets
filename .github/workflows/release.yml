@@ -1,0 +1,116 @@
+name: Release
+
+# Push a version tag to publish a release:
+#   git tag v0.2.0 && git push origin v0.2.0
+#
+# Builds a universal app, publishes Wheedgets-<version>.zip on GitHub
+# Releases and updates the cask in Dayfob/homebrew-tap, so users get it with
+#   brew install --cask dayfob/tap/wheedgets   (and later `brew upgrade`).
+#
+# Signing and notarization switch on by themselves once these secrets exist:
+#   DEVELOPER_ID_P12           base64 of the "Developer ID Application" .p12
+#   DEVELOPER_ID_P12_PASSWORD  its password
+#   APPLE_ID, APPLE_TEAM_ID, APPLE_APP_PASSWORD   for notarytool
+# Without them the app is ad-hoc signed and the cask tells users how to open it.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: macos-26
+    env:
+      HAS_DEVELOPER_ID: ${{ secrets.DEVELOPER_ID_P12 != '' }}
+      HAS_NOTARY: ${{ secrets.APPLE_APP_PASSWORD != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Version from tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Tag must look like v1.2.3"; exit 1; }
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "ZIP=Wheedgets-$VERSION.zip" >> "$GITHUB_ENV"
+
+      - name: Check translations
+        run: ./Tools/check-localizations.py
+
+      - name: Test
+        run: swift test
+
+      - name: Import Developer ID certificate
+        if: env.HAS_DEVELOPER_ID == 'true'
+        env:
+          P12: ${{ secrets.DEVELOPER_ID_P12 }}
+          P12_PASSWORD: ${{ secrets.DEVELOPER_ID_P12_PASSWORD }}
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/signing.keychain-db"
+          KEYCHAIN_PASSWORD="$(uuidgen)"
+          echo "$P12" | base64 --decode > "$RUNNER_TEMP/developer-id.p12"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 3600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security import "$RUNNER_TEMP/developer-id.p12" -k "$KEYCHAIN" -P "$P12_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN" > /dev/null
+          security list-keychains -d user -s "$KEYCHAIN" login.keychain
+          rm "$RUNNER_TEMP/developer-id.p12"
+
+      - name: Build
+        env:
+          WHEEDGETS_VERSION: ${{ env.VERSION }}
+          WHEEDGETS_BUILD: ${{ github.run_number }}
+        run: ./build.sh --universal
+
+      - name: Notarize
+        if: env.HAS_DEVELOPER_ID == 'true' && env.HAS_NOTARY == 'true'
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+        run: |
+          ditto -c -k --keepParent build/Wheedgets.app "$RUNNER_TEMP/notarize.zip"
+          xcrun notarytool submit "$RUNNER_TEMP/notarize.zip" \
+            --apple-id "$APPLE_ID" --team-id "$APPLE_TEAM_ID" --password "$APPLE_APP_PASSWORD" --wait
+          xcrun stapler staple build/Wheedgets.app
+          echo "NOTARIZED=notarized" >> "$GITHUB_ENV"
+
+      - name: Package
+        run: |
+          ditto -c -k --keepParent build/Wheedgets.app "$ZIP"
+          echo "SHA256=$(shasum -a 256 "$ZIP" | cut -d' ' -f1)" >> "$GITHUB_ENV"
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "$ZIP" \
+            --title "Wheedgets $VERSION" \
+            --generate-notes \
+            --notes "Install or update with Homebrew: \`brew install --cask dayfob/tap/wheedgets\`"
+
+      - name: Update Homebrew tap
+        env:
+          TAP_DEPLOY_KEY: ${{ secrets.TAP_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$TAP_DEPLOY_KEY" > ~/.ssh/tap_key
+          chmod 600 ~/.ssh/tap_key
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/tap_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          git clone git@github.com:Dayfob/homebrew-tap.git "$RUNNER_TEMP/tap"
+          mkdir -p "$RUNNER_TEMP/tap/Casks"
+          ./Tools/make-cask.sh "$VERSION" "$SHA256" "${NOTARIZED:-}" > "$RUNNER_TEMP/tap/Casks/wheedgets.rb"
+          cd "$RUNNER_TEMP/tap"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/wheedgets.rb
+          git commit -m "wheedgets $VERSION"
+          git push
+          rm ~/.ssh/tap_key

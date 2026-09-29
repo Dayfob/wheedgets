@@ -38,6 +38,20 @@ Fidget toys for your Mac, all in one menu bar icon. *Wheee* + widgets.
 
 Requires macOS 14 or later.
 
+## Install
+
+```sh
+brew install --cask dayfob/tap/wheedgets
+```
+
+Update with `brew upgrade`, remove with `brew uninstall --cask wheedgets` (add `--zap` to
+also delete settings and imported sounds). Releases are also on the
+[Releases page](https://github.com/Dayfob/wheedgets/releases).
+
+Wheedgets isn't notarized by Apple yet. The first time you open it, macOS may refuse:
+open System Settings → Privacy & Security, scroll down and click **Open Anyway**. Then
+turn a widget on and allow **Accessibility** when asked.
+
 ## Build and run
 
 Building needs Xcode 26 or later (the app itself runs on macOS 14+).
@@ -134,3 +148,12 @@ in `AppDelegate`, and give it a settings pane.
 
 The app icon is drawn in code: `swift Tools/MakeIcon.swift` regenerates
 `Resources/AppIcon.icns` (pass a path to also get a 1024 px PNG preview).
+
+## Releases
+
+Pushing a version tag (`git tag v0.2.0 && git push origin v0.2.0`) runs
+`.github/workflows/release.yml`. It tests, builds a universal app, publishes
+`Wheedgets-<version>.zip` as a GitHub release and updates the cask in
+[Dayfob/homebrew-tap](https://github.com/Dayfob/homebrew-tap). Signing with a Developer ID
+and notarization turn on by themselves once the secrets listed at the top of the workflow
+are set.
