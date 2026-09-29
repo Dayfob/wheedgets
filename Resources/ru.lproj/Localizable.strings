@@ -1,0 +1,224 @@
+/* App */
+"Wheedgets" = "Wheedgets";
+"Wheedgets Settings" = "Настройки Wheedgets";
+"Wheedgets: waiting for Accessibility access" = "Wheedgets: ждёт Универсальный доступ";
+"Quit Wheedgets" = "Завершить Wheedgets";
+"Settings" = "Настройки";
+"Settings…" = "Настройки…";
+"Window" = "Окно";
+"Close" = "Закрыть";
+"Minimize" = "Свернуть";
+
+/* Play mode */
+"Waiting for access…" = "Ждём доступ…";
+"On/off shortcut" = "Сочетание для вкл/выкл";
+"This shortcut is taken by another app. Choose a different one." = "Это сочетание занято другим приложением. Выберите другое.";
+
+/* Menu bar */
+"Grant Accessibility Access…" = "Дать Универсальный доступ…";
+
+/* General settings */
+"General" = "Основные";
+"Sound" = "Звук";
+"Master volume" = "Общая громкость";
+"Permission" = "Разрешение";
+"Accessibility access granted" = "Универсальный доступ выдан";
+"Accessibility access is needed to capture keys" = "Для перехвата клавиш нужен Универсальный доступ";
+"Open System Settings" = "Открыть Системные настройки";
+"App" = "Приложение";
+"Launch at login" = "Запускать при входе в систему";
+
+/* Drums */
+"Drums" = "Барабаны";
+"Volume" = "Громкость";
+"Bound keys" = "Назначенные клавиши";
+"Only play drums" = "Только играют барабаны";
+"Play drums and type" = "Играют барабаны и печатают текст";
+"Bound keys are captured. Click to let them type too." = "Клавиши перехватываются. Нажмите, чтобы они ещё и печатали.";
+"Bound keys also type. Click to capture them." = "Клавиши ещё и печатают. Нажмите, чтобы перехватывать их.";
+"Hide Panel" = "Скрыть панель";
+"No pads yet. Add some in Settings." = "Пэдов пока нет. Добавьте их в настройках.";
+"Pads" = "Пэды";
+"Add Pad" = "Добавить пэд";
+"Restore Default Kit" = "Вернуть стандартный набор";
+"Keys are physical positions, so bindings work with any keyboard layout. Custom sounds can be WAV, AIFF, MP3, M4A or CAF, up to 10 seconds." = "Клавиши привязаны к физическим позициям, поэтому работают в любой раскладке. Свои звуки: WAV, AIFF, MP3, M4A или CAF, до 10 секунд.";
+"Pad volume" = "Громкость пэда";
+"Preview" = "Прослушать";
+"Remove pad" = "Удалить пэд";
+"Built-in" = "Встроенные";
+"Choose Sound File…" = "Выбрать звуковой файл…";
+
+/* Drum sounds */
+"Kick" = "Бочка";
+"Snare" = "Малый барабан";
+"Rimshot" = "Римшот";
+"Clap" = "Хлопок";
+"Closed Hi-Hat" = "Закрытый хай-хэт";
+"Open Hi-Hat" = "Открытый хай-хэт";
+"High Tom" = "Высокий том";
+"Mid Tom" = "Средний том";
+"Low Tom" = "Низкий том";
+"Crash" = "Крэш";
+"Ride" = "Райд";
+"Cowbell" = "Ковбелл";
+
+/* Key recorder */
+"Space" = "Пробел";
+"Press a key…" = "Нажмите клавишу…";
+"Press shortcut…" = "Нажмите сочетание…";
+"Press Esc to cancel" = "Esc — отмена";
+"Click to change" = "Нажмите, чтобы изменить";
+
+/* Alerts */
+"Choose a sound for this pad" = "Выберите звук для этого пэда";
+"Couldn't Use This File" = "Не удалось использовать файл";
+"This file can't be played. Choose a WAV, AIFF, MP3, M4A or CAF file." = "Этот файл нельзя воспроизвести. Выберите WAV, AIFF, MP3, M4A или CAF.";
+"Accessibility Access Needs a Refresh" = "Нужно обновить Универсальный доступ";
+"Couldn't Change Launch at Login" = "Не удалось изменить запуск при входе";
+
+/* Keyboard sounds */
+"Keyboard Sounds" = "Звук клавиатуры";
+"Keyboard" = "Клавиатура";
+"Sounds" = "Звуки";
+"Loading pack…" = "Загружаем пак…";
+"Wheedgets only notes which key moved to pick its sound. What you type is never stored or sent anywhere. Password fields stay silent." = "Wheedgets смотрит только на то, какая клавиша нажата, чтобы выбрать звук. Набранный текст нигде не сохраняется и никуда не отправляется. В полях пароля звука нет.";
+"Sound Pack" = "Звуковой пак";
+"Pack" = "Пак";
+"Imported" = "Импортированные";
+"Clicky" = "Кликающие";
+"Thocky" = "Глухие";
+"Remove pack" = "Удалить пак";
+"Import Mechvibes Pack…" = "Импортировать пак Mechvibes…";
+"Show in Finder" = "Показать в Finder";
+"Wheedgets plays sound packs made for Mechvibes. Choose the pack's folder (the one with config.json) or its .zip file." = "Wheedgets играет звуковые паки для Mechvibes. Выберите папку пака (в ней лежит config.json) или его .zip-архив.";
+"Play key release sounds" = "Звук отпускания клавиш";
+"Try it" = "Попробовать";
+"Type here to hear the pack" = "Напечатайте здесь, чтобы послушать пак";
+"Choose a Mechvibes sound pack folder or .zip file" = "Выберите папку пака Mechvibes или .zip-архив";
+"Couldn't Import This Pack" = "Не удалось импортировать пак";
+"No config.json found. Choose a Mechvibes sound pack folder or its .zip file." = "Не найден config.json. Выберите папку пака Mechvibes или его .zip-архив.";
+"The pack's sound files are missing." = "В паке нет звуковых файлов.";
+"The .zip file could not be extracted." = "Не удалось распаковать .zip-архив.";
+"Couldn't decode “%@”. This version of macOS may not support its audio format." = "Не удалось декодировать «%@». Возможно, эта версия macOS не поддерживает такой аудиоформат.";
+"None of the pack's sounds could be loaded." = "Не удалось загрузить ни одного звука из пака.";
+"config.json is not valid JSON." = "config.json не является корректным JSON.";
+"config.json has no “%@” field." = "В config.json нет поля «%@».";
+"Unsupported key_define_type “%@”." = "Неподдерживаемый key_define_type «%@».";
+"The pack refers to a file outside its folder: %@" = "Пак ссылается на файл за пределами своей папки: %@";
+"The pack defines no sounds." = "В паке не задано ни одного звука.";
+
+"macOS still has access recorded for an older build of Wheedgets. In System Settings → Privacy & Security → Accessibility, remove Wheedgets with the “−” button, then turn the widget on again." = "macOS помнит доступ для старой сборки Wheedgets. В Системных настройках → Конфиденциальность и безопасность → Универсальный доступ удалите Wheedgets кнопкой «−» и снова включите виджет.";
+
+/* Widgets */
+"Widgets" = "Виджеты";
+"Spinner" = "Спиннер";
+"Wheedgets: %@ is on" = "Wheedgets: %@ — включено";
+"Turn On %@" = "Включить: %@";
+"Turn Off %@" = "Выключить: %@";
+"Turn On" = "Включить";
+"Turn Off" = "Выключить";
+"On" = "Включён";
+"Off" = "Выключен";
+"Not active" = "Не выбран";
+"One widget is active at a time: pick it in the menu bar. The shortcut turns it on and off. Shortcuts with ⌘, ⌃ or ⌥ always keep working." = "Одновременно работает один виджет: выберите его в меню в строке меню. Сочетание клавиш включает и выключает его. Сочетания с ⌘, ⌃ или ⌥ продолжают работать всегда.";
+
+/* Drums */
+"Show Pads" = "Показывать пэды";
+"Hide Pads" = "Скрыть пэды";
+"Show the pads while drums are on" = "Показывать пэды, пока барабаны включены";
+"Bound keys never reach the app you're typing in. Esc turns the drums off." = "Назначенные клавиши не доходят до приложения, в котором вы печатаете. Esc выключает барабаны.";
+"Bound keys play a drum and still type as usual. Turn the drums off with the shortcut." = "Назначенные клавиши играют барабан и печатают как обычно. Выключаются барабаны сочетанием клавиш.";
+
+/* Spinner */
+"Give It a Spin" = "Раскрутить";
+"Keys" = "Клавиши";
+"Only spin" = "Только крутят спиннер";
+"Spin and type" = "Крутят спиннер и печатают";
+"Every key press spins it a little" = "Каждое нажатие немного раскручивает";
+"Spinner keys don't type. Esc turns the spinner off." = "Клавиши спиннера не печатают. Esc выключает спиннер.";
+"Every key spins it and nothing types. Esc turns the spinner off." = "Любая клавиша раскручивает спиннер, текст не печатается. Esc выключает спиннер.";
+"Spinner keys spin it and still type. Turn it off with the shortcut." = "Клавиши спиннера крутят его и печатают. Выключается сочетанием клавиш.";
+"Type as usual; your typing keeps it spinning." = "Печатайте как обычно — набор текста раскручивает спиннер.";
+"Add Key" = "Добавить клавишу";
+"Restore Default Keys" = "Вернуть стандартные клавиши";
+"Hold a spin key to keep pushing, hold brake to slow down." = "Удерживайте клавишу раскрутки, чтобы разгонять, и тормоз, чтобы замедлять.";
+"Remove key" = "Удалить клавишу";
+"Action" = "Действие";
+"Spin" = "Раскрутить";
+"Spin clockwise" = "Крутить по часовой";
+"Spin counterclockwise" = "Крутить против часовой";
+"Brake" = "Тормоз";
+"Stop" = "Стоп";
+"Look" = "Внешний вид";
+"Color" = "Цвет";
+"Size" = "Размер";
+"Show" = "Показывать";
+"While it's on" = "Пока включён";
+"Always" = "Всегда";
+"Position" = "Положение";
+"Drag the spinner to move it" = "Перетащите спиннер мышью или трекпадом";
+"Reset" = "Сбросить";
+"Feel & Sound" = "Ощущения и звук";
+"Spin time" = "Время вращения";
+"Short" = "Коротко";
+"Long" = "Долго";
+"Pink" = "Розовый";
+"Keys that slow it down" = "Тормозящие клавиши";
+"Add…" = "Добавить…";
+"Push strength" = "Сила раскрутки";
+"Brake strength" = "Сила торможения";
+"Weak" = "Слабо";
+"Strong" = "Сильно";
+"Holding a key keeps pushing or braking" = "Удержание клавиши продолжает разгонять или тормозить";
+"Each press counts once; holding a key does nothing more." = "Каждое нажатие срабатывает один раз, удержание ничего не добавляет.";
+
+/* Spinner control */
+"Control" = "Управление";
+"Keyboard" = "Клавиатура";
+"Trackpad" = "Трекпад";
+"Keys spin it. The trackpad is left alone." = "Спиннер крутится клавишами. Трекпад не отслеживается.";
+"Finger movement on the trackpad spins it. Keys are left alone, and the trackpad keeps working as usual." = "Спиннер крутится движением пальцев по трекпаду. Клавиши не перехватываются, трекпад работает как обычно.";
+"This version of macOS doesn't give access to trackpad fingers." = "Эта версия macOS не даёт доступа к касаниям трекпада.";
+"Speed ratio" = "Передаточное число";
+"Move a finger around the trackpad's center: up on the right turns it counterclockwise, up on the left clockwise. A quick flick along the spin pushes it faster; a flick against it throws it the other way. Keep your finger moving and it follows your finger. At ×1 it feels like turning it by hand." = "Ведите пальцем вокруг центра трекпада: вверх справа — против часовой, вверх слева — по часовой. Быстрое смахивание по ходу вращения разгоняет спиннер, против — разворачивает его в другую сторону. Если продолжать вести пальцем, спиннер движется вместе с ним. При ×1 ощущение как при вращении рукой.";
+"Resting a finger slows it down" = "Касание тормозит";
+"Touch brake strength" = "Сила торможения касанием";
+"Instant" = "Мгновенно";
+"A finger that lands and stays put stops it at once, like grabbing a real spinner. A finger that lands moving is a gesture." = "Палец, который коснулся и не сдвинулся, сразу останавливает спиннер, как если схватить настоящий. Если палец коснулся в движении, это жест.";
+
+/* Drums on the trackpad */
+"Play with" = "Играть на";
+"Hit with" = "Бить";
+"Taps" = "Касаниями";
+"Clicks" = "Нажатиями";
+"Harder hits play louder" = "Чем сильнее удар, тем громче";
+"Zones" = "Зоны";
+"Rows: %lld" = "Рядов: %lld";
+"Columns: %lld" = "Колонок: %lld";
+"Custom sounds can be WAV, AIFF, MP3, M4A or CAF, up to 10 seconds." = "Свои звуки: WAV, AIFF, MP3, M4A или CAF, до 10 секунд.";
+"Keys are physical positions, so bindings work with any keyboard layout." = "Клавиши привязаны к физическим позициям, поэтому работают в любой раскладке.";
+"Every touch plays the zone under the finger, so moving the pointer drums too. Clicks and the pointer keep working as usual. Give several zones the same sound to make it a bigger target." = "Каждое касание играет зону под пальцем, поэтому движение курсора тоже стучит. Клики и курсор работают как обычно. Назначьте один звук на несколько зон, чтобы увеличить этот пэд.";
+"Grid" = "Сетка";
+"Drawn" = "Свои";
+"No zones yet" = "Зон пока нет";
+"Draw Zone" = "Нарисовать зону";
+"Trace the zone on the trackpad with one finger, then lift it." = "Обведите зону на трекпаде одним пальцем и отпустите.";
+"Too small — draw a bigger outline." = "Слишком маленькая — обведите побольше.";
+"Remove All" = "Удалить все";
+"Cancel" = "Отмена";
+"Remove zone" = "Удалить зону";
+"Give several zones the same sound to make it a bigger target." = "Назначьте один звук на несколько зон, чтобы увеличить этот пэд.";
+"Every touch plays the zone under the finger, so moving the pointer drums too. Clicks and the pointer keep working as usual." = "Каждое касание играет зону под пальцем, поэтому движение курсора тоже стучит. Клики и курсор работают как обычно.";
+"Clicking the trackpad plays the zone under the finger; moving the pointer stays silent. Clicks still reach the app underneath." = "Нажатие на трекпад играет зону под пальцем, движение курсора — тишина. Клики по-прежнему доходят до приложения.";
+"Draw zones of any shape by tracing them on the trackpad. Where zones overlap, the one drawn later wins; outside every zone the trackpad stays silent." = "Рисуйте зоны любой формы, обводя их на трекпаде. Где зоны перекрываются, срабатывает нарисованная позже; вне зон трекпад молчит.";
+"Cosmic Orange" = "Космический оранжевый";
+"Deep Blue" = "Глубокий синий";
+"Silver" = "Серебристый";
+"Space Black" = "Космический чёрный";
+"Sky Blue" = "Небесно-голубой";
+"Light Gold" = "Светлое золото";
+"Lavender" = "Лавандовый";
+"Mist Blue" = "Туманно-голубой";
+"Sage" = "Шалфей";
+"Ultramarine" = "Ультрамарин";
+"Teal" = "Бирюзовый";
