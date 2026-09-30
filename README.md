@@ -1,165 +1,165 @@
-# Wheedgets
+<p align="center">
+  <img src="docs/assets/icon.png" width="128" alt="Wheedgets icon: a glossy bubble about to pop">
+</p>
 
-Fidget toys for your Mac, all in one menu bar icon. *Wheee* + widgets.
+<h1 align="center">Wheedgets</h1>
 
-- **One widget at a time.** Pick a widget in the menu bar; one shortcut (⌃⌥W by default)
-  turns it on and off. The menu shows only what concerns the selected widget.
-- **Captured or pass-through keys.** In *capture* mode a widget's keys never reach the
-  app in front, and Esc turns the widget off. In *pass-through* mode every key still
-  types and the widget reacts as well: drum while you write, or keep the spinner spinning.
-- **Drums.** Twelve 808/909-style sounds synthesized in code, so the app ships no sample
-  files. Any pad can play your own WAV/AIFF/MP3/M4A/CAF instead. While the drums are on, a
-  floating panel shows the pads flash as you hit them, and you can click them too.
-  They can also be played on the trackpad, as a grid of zones (2×4 by default, up to 4×4).
-  Zones can share a sound to make that drum a bigger target. Instead of the grid you can
-  draw zones of any shape by tracing their outline on the trackpad. Hits come from touches or
-  from physical clicks, and optionally get louder the harder you hit. Nothing is blocked:
-  clicks and the pointer keep working.
-- **Spinner.** A fidget spinner floating above every window, even full-screen ones. Clicks
-  go straight through it. Keys flick it, push it while held, brake it or stop it, and
-  optionally every key press nudges it. Ball-bearing physics make it whir for a long time
-  and then settle. Its sound is synthesized in real time from its speed, and it blurs into
-  a disc when fast. Drag it anywhere; only the spinner itself takes clicks, everything
-  around it stays clickable. You can pick its color and size.
-  It can be driven by the keyboard or by the trackpad, one at a time. On the trackpad,
-  moving a finger around the center turns it 1:1 with the finger. A quick flick pushes
-  it and adds to its spin; a finger that keeps moving holds it at the finger's speed. The
-  trackpad is only observed, never blocked: the pointer, scrolling and gestures work as
-  usual. Finger positions come from Apple's private MultitouchSupport framework, which is
-  loaded at runtime and only while the spinner is on in trackpad mode.
-- **Keyboard sounds.** Every key you type sounds like a mechanical keyboard. There are
-  two synthesized packs built in (clicky and thocky), and you can import any
-  [Mechvibes](https://github.com/hainguyents13/mechvibes) sound pack (a folder or .zip)
-  with its press and release sounds. It only listens and never delays a key.
-- **Plays over your music.** Nothing gets ducked, paused or switched (see [Audio](#audio)).
-  There is a master volume, plus a volume for each module that goes up to 200 % behind a
-  limiter.
-- English and Russian UI.
+<p align="center">
+  Fidget toys for restless hands, right in your Mac's menu bar.<br>
+  Drum on your keyboard, spin a fidget spinner, make every key click.
+</p>
 
-Requires macOS 14 or later.
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#whats-inside">What's inside</a> ·
+  <a href="#privacy-and-permissions">Privacy</a> ·
+  <a href="#if-something-doesnt-work">Help</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Dayfob/wheedgets/releases"><img src="https://img.shields.io/github/v/release/Dayfob/wheedgets?label=release" alt="Latest release"></a>
+  <a href="https://github.com/Dayfob/wheedgets/actions/workflows/ci.yml"><img src="https://github.com/Dayfob/wheedgets/actions/workflows/ci.yml/badge.svg" alt="CI status"></a>
+  <img src="https://img.shields.io/badge/macOS-14%2B-black" alt="macOS 14 or later">
+  <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-PolyForm%20Noncommercial-blue" alt="PolyForm Noncommercial license"></a>
+</p>
+
+If your hands always need something to do while you think, read or sit through a call,
+Wheedgets gives them a toy without leaving the Mac: a few small fidget widgets behind one
+menu bar icon. It's free, works offline and keeps nothing you type.
 
 ## Install
+
+With [Homebrew](https://brew.sh):
 
 ```sh
 brew install --cask dayfob/tap/wheedgets
 ```
 
-Update with `brew upgrade`, remove with `brew uninstall --cask wheedgets` (add `--zap` to
-also delete settings and imported sounds). Releases are also on the
-[Releases page](https://github.com/Dayfob/wheedgets/releases).
+Or download the zip from the [Releases page](https://github.com/Dayfob/wheedgets/releases),
+unzip it and drag **Wheedgets** into Applications.
 
-Wheedgets isn't notarized by Apple yet. The first time you open it, macOS may refuse:
-open System Settings → Privacy & Security, scroll down and click **Open Anyway**. Then
-turn a widget on and allow **Accessibility** when asked.
+**First launch.** Wheedgets isn't notarized by Apple yet, so macOS may say it can't check
+the app. Open **System Settings → Privacy & Security**, scroll down and click
+**Open Anyway** next to Wheedgets. You only need to do this once.
 
-## Build and run
+**Update** with `brew upgrade`. **Uninstall** with `brew uninstall --cask wheedgets`; add
+`--zap` to also remove its settings and imported sounds.
 
-Building needs Xcode 26 or later (the app itself runs on macOS 14+).
+## Getting started
+
+1. Click the bubble icon in the menu bar and pick a widget.
+2. It turns on right away. The first time, macOS asks for **Accessibility** access so
+   Wheedgets can hear your keys: allow it in System Settings and the widget starts by
+   itself.
+3. Press **⌃⌥W** (Control-Option-W) any time to turn the widget off and on again. You can
+   change the shortcut in Settings.
+
+Only one widget is on at a time, so it's always clear what your keys are doing. The
+bubble in the menu bar fills in while a widget is on.
+
+## What's inside
+
+### Drums
+
+A drum kit under your fingers: kick, snare, hi-hats, toms, cymbals, clap and more.
+
+- **On the keyboard.** Each drum sits on a key (kick on F and Space, snare on J, hats
+  under your right hand). Rebind any key, add or remove pads, or load your own sounds
+  (WAV, AIFF, MP3, M4A, CAF).
+- **On the trackpad.** Turn the trackpad into drum pads: a grid of zones (2×4 by default,
+  up to 4×4), or zones of any shape you draw by tracing them with a finger. Give several
+  zones the same drum to make it a bigger target. Play with taps or with real clicks.
+- **Feel.** Harder taps play louder, if you like. A small floating panel shows the pads
+  lighting up as you hit them, and you can click them too.
+
+### Spinner
+
+A fidget spinner that floats above everything on your screen, even full-screen apps.
+
+- **Spin it with keys.** Space flicks it, the arrow keys spin it either way, hold ↓ to
+  brake, Return stops it. Or let every key you type nudge it along while you write.
+- **Or with the trackpad.** Circle a finger around the trackpad and it turns with you.
+  A quick flick pushes it; a flick the other way throws it into reverse.
+- **It feels real.** It whirs for a long time and slowly settles, with a sound that rises
+  and falls with its speed, and blurs into a disc when it's really going.
+- **Make it yours.** Twelve colors inspired by iPhone finishes, any size, and drag it
+  wherever you want it. Clicks right next to it go through to whatever is underneath.
+
+### Keyboard sounds
+
+Make every key sound like a mechanical keyboard. Two sets are built in (clicky and
+thocky), and you can load any [Mechvibes](https://github.com/hainguyents13/mechvibes)
+sound pack for Cherry MX, Topre, typewriters and many more. Your typing is never slowed
+down.
+
+### Keys: captured or passed through
+
+For drums and the spinner you choose what your keys do while the widget is on:
+
+- **Only play** — the widget's keys don't type anything. Handy for a quick jam; **Esc**
+  turns the widget off.
+- **Play and type** — keys type as usual *and* play along, so you can drum or keep the
+  spinner going while you write.
+
+Shortcuts with ⌘, ⌃ or ⌥ always work normally.
+
+### Sound
+
+Wheedgets plays over your music and calls: it never pauses, lowers or switches your other
+audio. Each widget has its own volume slider (up to 200%), and there's a master volume in
+Settings.
+
+## Privacy and permissions
+
+- **No account, no tracking, no network.** Wheedgets doesn't connect to anything.
+- **Accessibility** is the only permission it asks for. It's needed to hear which keys
+  you press while a widget is on. With every widget off, Wheedgets doesn't watch the
+  keyboard at all.
+- **Nothing you type is kept.** Widgets only look at *which key* moved to pick a sound or
+  a drum; text is never assembled, stored or sent anywhere. Password fields stay silent.
+- **The trackpad** is read only while a trackpad widget is on, and nothing is blocked:
+  the pointer, scrolling and gestures work as usual.
+
+## If something doesn't work
+
+- **macOS won't open the app.** See *First launch* above: System Settings → Privacy &
+  Security → **Open Anyway**.
+- **Keys stopped working after an update.** macOS may forget the Accessibility permission
+  when an app updates. Turn the widget on again and Wheedgets asks for it. If it still
+  doesn't respond, remove Wheedgets from System Settings → Privacy & Security →
+  Accessibility with the **−** button and turn the widget on once more.
+- **No sound while typing a password.** That's macOS protecting password fields. It's on
+  purpose.
+- **The spinner is in the way.** Drag it somewhere else, or use **Reset** in the spinner's
+  settings to send it back to the bottom-right corner.
+- **Trackpad options are missing.** They rely on a part of macOS that Apple doesn't
+  document. If a future macOS changes it, the settings say so, and the keyboard options
+  keep working.
+
+Found a bug or have an idea? [Open an issue](https://github.com/Dayfob/wheedgets/issues).
+
+## Requirements
+
+- macOS 14 Sonoma or later, on Apple Silicon or Intel
+- A trackpad for the trackpad options (MacBook or Magic Trackpad)
+
+## Build it yourself
 
 ```sh
-./Tools/setup-signing.sh   # once: creates a stable local code-signing identity
-./build.sh --install       # builds, copies to /Applications, launches
+git clone https://github.com/Dayfob/wheedgets.git
+cd wheedgets
+./build.sh --install
 ```
 
-Other options: `./build.sh` (builds to `build/Wheedgets.app` only), `--run`, and
-`--universal`. Run the tests with `swift test`, and check that every UI string is
-translated with `./Tools/check-localizations.py`.
-
-To also test against real Mechvibes packs (parsing, Ogg/MP3 decoding, slicing):
-
-```sh
-git clone --depth 1 https://github.com/hainguyents13/mechvibes /tmp/mechvibes
-MECHVIBES_PACKS=/tmp/mechvibes/src/audio swift test
-```
-
-**Why the signing step matters.** macOS ties the Accessibility grant to the app's code
-signature. An ad-hoc signature changes on every build, so the grant would stop working
-after each rebuild. `setup-signing.sh` creates a self-signed identity in a dedicated
-keychain (`~/Library/Keychains/wheedgets-signing.keychain-db`), and `build.sh` uses it
-automatically. If a Developer ID certificate is installed, `build.sh` prefers it.
-
-## Permissions
-
-Wheedgets needs **Accessibility** access to handle keys. It asks the first time you turn
-a widget on, and the widget starts automatically once you grant it.
-
-- One shared keyboard tap exists only while a module needs it. With everything idle, the
-  app watches no keystrokes at all. The tap only filters (sits in the input path) while a
-  capture-mode widget is on. Pass-through widgets use a listen-only tap, which can't delay
-  typing.
-- Keyboard sounds look only at which physical key moved. Typed text is never assembled,
-  stored or logged. The on/off shortcut goes through
-  `RegisterEventHotKey`, which needs no permission.
-- Password fields turn on Secure Input, which blocks all key taps. Modules stay silent
-  there by design.
-- A grant belongs to one code signature. If a build with a different signature shows as
-  enabled but isn't trusted, Wheedgets clears its own stale entry with
-  `tccutil reset Accessibility dev.wheedgets.Wheedgets` and asks again. Other apps'
-  entries are never touched.
-
-## Audio
-
-macOS mixes all apps' audio, so staying out of the way means avoiding what would
-interfere. The shared engine:
-
-- never touches the input node. Opening it can switch Bluetooth headphones into
-  low-quality headset mode for the whole system;
-- never enables voice processing, which ducks other apps' audio;
-- never changes the output device, its sample rate, or the system volume;
-- stays running while the drums are on or the spinner turns, so the first sound isn't
-  delayed while Bluetooth output wakes up. Otherwise the engine stops after 20 s of silence;
-- follows output device changes and re-renders sounds at the new sample rate.
-
-Graph: each widget gets a channel (sample voices or a real-time generator → mixer → limiter). All channels feed a master
-bus and limiter, then the main mixer, which applies the master volume.
-
-## Architecture
-
-```
-Sources/
-  WheedgetsCore/            UI-free and unit-tested
-    AppSettings.swift       settings slices per module, lenient decoding
-    KeyRouting.swift        what a capture-mode widget does with a key
-    SpinnerPhysics.swift    bearing friction, flicks, push, brake, stop
-    SpinnerSound.swift      real-time whir synthesis
-    TrackpadDrive.swift     finger motion around the pad center → spin speed; flick vs drag
-    DrumTrackpad.swift      drum zones on the trackpad, touchdown hits and their strength
-    DrumSettings.swift      pads and key-assignment rules
-    DrumSynth.swift         deterministic drum synthesis
-    KeySoundPack.swift      keyboard pack model and Mechvibes config.json parser (v1, v2)
-    KeyClickSynth.swift     built-in synthesized key clicks
-    MechvibesKeyCodes.swift macOS key codes → Mechvibes key codes
-    DSP.swift               oscillators, noise, RBJ biquads
-  Wheedgets/
-    App/                    composition root: services → modules → UI
-    Core/                   settings store, alerts, launch at login
-    Audio/                  shared AudioEngine, per-module AudioChannel, sample import
-    Input/                  KeyboardHub (one shared tap), Carbon hotkey, Accessibility,
-                            MultitouchTrackpad (read-only finger positions)
-    Widgets/                WidgetHost: the selected widget, on/off, key routing
-    Modules/Drums/          DrumKit widget, floating pad panel, settings pane
-    Modules/Spinner/        overlay window, Core Animation rendering, artwork, audio node
-    Modules/KeyboardSounds/ widget, pack library (import/zip), background loader
-    UI/                     menu bar, settings window, shared panel components
-```
-
-To add a widget, implement `Widget`, add a case to `WidgetKind`, pass it to `WidgetHost`
-in `AppDelegate`, and give it a settings pane.
-
-The app icon is drawn in code: `swift Tools/MakeIcon.swift` regenerates
-`Resources/AppIcon.icns` (pass a path to also get a 1024 px PNG preview).
-
-## Releases
-
-Pushing a version tag (`git tag v0.2.0 && git push origin v0.2.0`) runs
-`.github/workflows/release.yml`. It tests, builds a universal app, publishes
-`Wheedgets-<version>.zip` as a GitHub release and updates the cask in
-[Dayfob/homebrew-tap](https://github.com/Dayfob/homebrew-tap). Signing with a Developer ID
-and notarization turn on by themselves once the secrets listed at the top of the workflow
-are set.
+You need Xcode 26 or later. The [contributing guide](CONTRIBUTING.md) covers the build,
+tests, architecture and releases.
 
 ## License
 
-[PolyForm Noncommercial 1.0.0](LICENSE.md): you may use, study, change and share Wheedgets
-for any noncommercial purpose. Using it, or code from it, in a commercial product or
-service is not permitted.
+[PolyForm Noncommercial 1.0.0](LICENSE.md): you're free to use, study, change and share
+Wheedgets for any noncommercial purpose. Using it, or code from it, in a commercial product
+or service is not permitted.
+
+<p align="center">
+  <sub>Made by <a href="https://github.com/Dayfob">@Dayfob</a></sub>
+</p>
